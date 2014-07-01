@@ -110,7 +110,7 @@ class StatsOrigin extends ModuleGraph
 						'.$this->engine(array('type' => 'pie')).'
 					</div>
 					<div class="col-lg-4">
-						<a href="'.Tools::safeOutput($_SERVER['REQUEST_URI']).'&export=1&exportType=top" class="btn btn-default">
+						<a href="'.Tools::safeOutput($_SERVER['REQUEST_URI'].'&export=1&exportType=top').'" class="btn btn-default">
 							<i class="icon-cloud-upload"></i> '.$this->l('CSV Export').'
 						</a>
 					</div>
