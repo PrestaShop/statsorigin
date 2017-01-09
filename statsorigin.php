@@ -36,15 +36,15 @@ class statsorigin extends ModuleGraph
     {
         $this->name = 'statsorigin';
         $this->tab = 'analytics_stats';
-        $this->version = '1.4.0';
+        $this->version = '2.0.0';
         $this->author = 'PrestaShop';
         $this->need_instance = 0;
 
         parent::__construct();
 
-        $this->displayName = $this->l('Visitors origin');
-        $this->description = $this->l('Adds a graph displaying the websites your visitors came from to the Stats dashboard.');
-        $this->ps_versions_compliancy = array('min' => '1.6', 'max' => _PS_VERSION_);
+        $this->displayName = $this->trans('Visitors origin', array(), 'Modules.Statsorigin.Admin');
+        $this->description = $this->trans('Adds a graph displaying the websites your visitors came from to the Stats dashboard.', array(), 'Modules.Statsorigin.Admin');
+        $this->ps_versions_compliancy = array('min' => '1.7.0.0', 'max' => _PS_VERSION_);
     }
 
     public function install()
@@ -54,7 +54,7 @@ class statsorigin extends ModuleGraph
 
     private function getOrigins($dateBetween)
     {
-        $directLink = $this->l('Direct link');
+        $directLink = $this->trans('Direct link', array(), 'Admin.OrdersCustomers.Notification');
         $sql = 'SELECT http_referer
 				FROM '._DB_PREFIX_.'connections
 				WHERE 1
@@ -86,23 +86,23 @@ class statsorigin extends ModuleGraph
                 $this->csvExport(array('type' => 'pie'));
             }
         }
-        $this->_html = '<div class="panel-heading">'.$this->l('Origin').'</div>';
+        $this->_html = '<div class="panel-heading">'.$this->trans('Origin', array(), 'Modules.Statsorigin.Admin').'</div>';
         if (count($websites)) {
             $this->_html .= '
 			<div class="alert alert-info">
-				'.$this->l('In the tab, we break down the 10 most popular referral websites that bring customers to your online store.').'
+				'.$this->trans('In the tab, we break down the 10 most popular referral websites that bring customers to your online store.', array(), 'Modules.Statsorigin.Admin').'
 			</div>
-			<h4>'.$this->l('Guide').'</h4>
+			<h4>'.$this->trans('Guide', array(), 'Admin.Global').'</h4>
 			<div class="alert alert-warning">
-				<h4>'.$this->l('What is a referral website?').'</h4>
+				<h4>'.$this->trans('What is a referral website?', array(), 'Modules.Statsorigin.Admin').'</h4>
 				<p>
-					'.$this->l('The referrer is the URL of the previous webpage from which a link was followed by the visitor.').'<br />
-					'.$this->l('A referrer also enables you to know which keywords visitors use in search engines when browsing for your online store.').'<br /><br />
-					'.$this->l('A referrer can be:').'
+					'.$this->trans('The referrer is the URL of the previous webpage from which a link was followed by the visitor.', array(), 'Modules.Statsorigin.Admin').'<br />
+					'.$this->trans('A referrer also enables you to know which keywords visitors use in search engines when browsing for your online store.', array(), 'Modules.Statsorigin.Admin').'<br /><br />
+					'.$this->trans('A referrer can be:', array(), 'Modules.Statsorigin.Admin').'
 				</p>
 				<ul>
-					<li>'.$this->l('Someone who posts a link to your shop.').'</li>
-					<li>'.$this->l('A partner who has agreed to a link exchange in order to attract new customers.').'</li>
+					<li>'.$this->trans('Someone who posts a link to your shop.', array(), 'Modules.Statsorigin.Admin').'</li>
+					<li>'.$this->trans('A partner who has agreed to a link exchange in order to attract new customers.', array(), 'Modules.Statsorigin.Admin').'</li>
 				</ul>
 			</div>
 			<div class="row row-margin-bottom">
@@ -112,7 +112,7 @@ class statsorigin extends ModuleGraph
 					</div>
 					<div class="col-lg-4">
 						<a href="'.Tools::safeOutput($_SERVER['REQUEST_URI'].'&export=1&exportType=top').'" class="btn btn-default">
-							<i class="icon-cloud-upload"></i> '.$this->l('CSV Export').'
+							<i class="icon-cloud-upload"></i> '.$this->trans('CSV Export', array(), 'Modules.Statsorigin.Admin').'
 						</a>
 					</div>
 				</div>
@@ -120,8 +120,8 @@ class statsorigin extends ModuleGraph
 			<table class="table">
 				<thead>
 					<tr>
-						<th><span class="title_box active">'.$this->l('Origin').'</span></th>
-						<th><span class="title_box active">'.$this->l('Total').'</span></th>
+						<th><span class="title_box active">'.$this->trans('Origin', array(), 'Modules.Statsorigin.Admin').'</span></th>
+						<th><span class="title_box active">'.$this->trans('Total', array(), 'Admin.Global').'</span></th>
 					</tr>
 				</thead>
 				<tbody>';
@@ -135,14 +135,14 @@ class statsorigin extends ModuleGraph
 				</tbody>
 			</table>';
         } else {
-            $this->_html .= '<p>'.$this->l('Direct links only').'</p>';
+            $this->_html .= '<p>'.$this->trans('Direct links only', array(), 'Modules.Statsorigin.Admin').'</p>';
         }
         return $this->_html;
     }
 
     protected function getData($layers)
     {
-        $this->_titles['main'] = $this->l('Top ten referral websites');
+        $this->_titles['main'] = $this->trans('Top ten referral websites', array(), 'Modules.Statsorigin.Admin');
         $websites = $this->getOrigins($this->getDate());
         $total = 0;
         $total2 = 0;
@@ -159,7 +159,7 @@ class statsorigin extends ModuleGraph
             }
         }
         if ($total != $total2) {
-            $this->_legend[] = $this->l('Others');
+            $this->_legend[] = $this->trans('Others', array(), 'Modules.Statsorigin.Admin');
             $this->_values[] = $total - $total2;
         }
     }
