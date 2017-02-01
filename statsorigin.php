@@ -54,7 +54,7 @@ class statsorigin extends ModuleGraph
 
     private function getOrigins($dateBetween)
     {
-        $directLink = $this->trans('Direct link', array(), 'Admin.OrdersCustomers.Notification');
+        $directLink = $this->trans('Direct link', array(), 'Admin.Orderscustomers.Notification');
         $sql = 'SELECT http_referer
 				FROM '._DB_PREFIX_.'connections
 				WHERE 1
