@@ -2,7 +2,7 @@
   "name": "prestashop/statsorigin",
   "description": "PrestaShop module statsorigin",
   "homepage": "https://github.com/PrestaShop/statsorigin",
-  "license": "AFL - Academic Free License (AFL 3.0)",
+  "license": "AFL-3.0",
   "authors": [
     {
       "name": "PrestaShop SA",
