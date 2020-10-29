@@ -2,7 +2,7 @@
 
 ## About
 
-Adds a graph displaying the websites your visitors came from to the Stats dashboard.
+Enrich your stats, add a graph displaying from which websites your visitors came from.
 
 ## Reporting issues
 
