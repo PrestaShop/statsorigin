@@ -43,7 +43,7 @@ class statsorigin extends ModuleGraph
         parent::__construct();
 
         $this->displayName = $this->trans('Visitors origin', array(), 'Modules.Statsorigin.Admin');
-        $this->description = $this->trans('Adds a graph displaying the websites your visitors came from to the Stats dashboard.', array(), 'Modules.Statsorigin.Admin');
+        $this->description = $this->trans('Enrich your stats, add a graph displaying from which websites your visitors came from.', array(), 'Modules.Statsorigin.Admin');
         $this->ps_versions_compliancy = array('min' => '1.7.1.0', 'max' => _PS_VERSION_);
     }
 
